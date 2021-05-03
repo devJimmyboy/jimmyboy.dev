@@ -1,38 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* .landingPageMainFlexbox {
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+} */
+
+.landingdiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.textDiv { 
+  position: inherit;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 2;
+}
+.textDiv h2{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header Anim Classes */
+.line-1{
+  position: relative;
+  top: 50%;  
+  border-right: 2px solid rgba(0,0,0,.75);
+  white-space: nowrap;
+  overflow: hidden;
+  /* -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); */
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
 }
