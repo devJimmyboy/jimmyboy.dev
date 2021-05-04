@@ -1,5 +1,5 @@
 import React from 'react'
-import {Flex, Button, Text, Modal,  ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react'
+import {Flex, Button, Text, Modal,  ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, ColorModeScript} from '@chakra-ui/react'
 import AccordionSelection from './AccordionSelection'
 import HeaderBar from './HeaderBar';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -28,7 +28,8 @@ export default class LandingPage extends React.Component {
     }
 
     render() {
-        return (<Router>
+        return (
+        <Router>
             <Modal 
             isOpen={this.state.showDialog}
             onClose={() => {this.setState({ showDialog: false }); try{localStorage.setItem("modalShown","true")}catch(err){console.log(err);}}}
@@ -52,9 +53,9 @@ export default class LandingPage extends React.Component {
             </ModalContent>
                 
             </Modal>
-        
-            <Flex direction="column" height="100%" overflow="hidden" alignItems="stretch">
-                <HeaderBar/>
+            <HeaderBar/>
+            <Flex className="flexMain" direction="column" height="100%" overflow="hidden" alignItems="stretch">
+                
                 {this.getAccords()}
             </Flex>
         </Router>
@@ -66,7 +67,7 @@ export default class LandingPage extends React.Component {
             return <AccordionSelection  key={"select"+i} title={val} id={i}/>;
         });
         return this.domElem;
-    };
+    }
     
     
     

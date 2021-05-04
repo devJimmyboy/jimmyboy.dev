@@ -4,6 +4,16 @@
   text-align: center;
 }
 
+/* On Chrome */
+html::-webkit-scrollbar {
+  display: none;
+}
+/* For Firefox and IE */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 
 /* .landingPageMainFlexbox {
   height: 100%;
@@ -20,7 +30,7 @@
   height: 100%;
 }
 
-.textDiv { 
+.textAccordianDiv { 
   position: inherit;
   cursor: pointer;
   width: 100%;
@@ -28,12 +38,18 @@
   align-items: center;
   z-index: 2;
 }
-.textDiv h2{
+.textAccordianDiv .heading{
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  color: #ffffff;
+  
+}
+
+.heading:hover {
+  color: #169ec0;
 }
 
 
@@ -48,4 +64,29 @@
   transform: translateY(-50%); */
   -webkit-box-sizing:content-box;
   box-sizing:content-box;
+}
+
+.header{
+  height: 5.5vh;
+  animation: growin-header 750ms ease-in-out 0s 1 both;
+}
+
+.flexMain{
+  animation: growin-flex 1500ms ease-in-out 1s 1 both;
+}
+
+@keyframes growin-flex {
+  from {
+    height: 0px;
+     y: -10%
+    }
+  to {
+    height: 94.5vh;
+    y: 0
+  }
+}
+
+@keyframes growin-header {
+  from {transform: translate(0px, -100%);}
+  to {transform: translate(0px, 0px);}
 }

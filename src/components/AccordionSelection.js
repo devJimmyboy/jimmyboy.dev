@@ -20,7 +20,6 @@ export default class AccordionSelection extends React.Component {
     }
     
     componentDidMount(){
-        gsap.from(this.el,{x: (this.props.id%2==1)?"100%": "-100%",duration: 1, ease: "power3"});
     
     }
     
@@ -42,7 +41,7 @@ export default class AccordionSelection extends React.Component {
             <Box ref={rf => this.el = rf} overflow="hidden" position="relative" flexGrow="1" alignItems="center" onMouseEnter={(e) => this.handleEnter(e)} onMouseLeave={(e) => this.handleLeave(e)}>
                 <div  className="landingdiv" style={{ background: `scroll center repeat url(${this.state.cardBg})`,filter: "blur(8px)", backgroundSize: "cover", backgroundPositionX: "center", backgroundPositionY: "25%"}} />
                 <Center w="100%" h="100%" className="textAccordianDiv" onClick={event => window.location.assign(`http://${this.state.url}.jimmyboy.dev`)}>                    
-                    <Heading className="" transition="color 400ms">
+                    <Heading className="heading" transition="color 400ms">
                         {this.props.title}
                     </Heading>
                 </Center>

@@ -45,7 +45,7 @@ function LogoAnim(props){
     var headRef = null;
     useEffect(() => {
         //letter anim
-        tl.fromTo(headRef, {text: {value: ""}},{duration: 5, text: {value: "Jimmyboy.dev", speed:0.2}}, 0);
+        tl.fromTo(headRef, {text: {value: ""}},{duration: 5, text: {value: "Jimmyboy.dev", speed:0.2}}, 1);
         //Cursor Anim
         tl.fromTo(".heading-typewriter", {"border-right-color": `rgba(${color},0.75)`,},{"border-right-color": `rgba(${color},0)`, repeat: -1, duration: 1.5},0);
         
