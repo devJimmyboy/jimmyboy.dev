@@ -1,4 +1,7 @@
-import { styled } from "@mui/material"
+import { Palette, styled, Theme, Tooltip } from "@mui/material"
+import { deepmerge } from "@mui/utils"
+import { ForwardRefComponent, HTMLMotionProps, motion } from "framer-motion"
+import React from "react"
 import Link from "../src/Link"
 
 export const Footer = styled("footer")`
@@ -39,3 +42,52 @@ export const RepoLink = styled(Link)`
     transform: scale(0.9);
   }
 `
+const ProjectBase = styled<ForwardRefComponent<HTMLAnchorElement, HTMLMotionProps<"a"> & { project: ThemeColor }>>(
+  motion.a
+)`
+  cursor: pointer;
+  border-radius: 0.5em;
+  background-color: ${(props) => props.theme.palette[props.project].main};
+  color: ${(props) => props.theme.palette[props.project].contrastText};
+  padding: 0.5em 1em;
+  user-select: none;
+  font-size: 2em;
+  vertical-align: text-bottom;
+`
+export const ProjectView = ({
+  description,
+  ...props
+}: React.PropsWithChildren<React.ComponentProps<typeof ProjectBase> & { className: string; description?: string }>) => {
+  const propsCombined = {
+    ...props,
+    whileHover: props.whileHover ? deepmerge({ scale: 1.1 }, props.whileHover) : { scale: 1.1 },
+    whileTap: props.whileTap ? deepmerge({ scale: 0.9 }, props.whileTap) : { scale: 0.9 },
+  }
+  return (
+    <Tooltip
+      followCursor
+      title={description || props.project}
+      placement="left"
+      sx={{
+        fontSize: "1.25em",
+      }}>
+      <ProjectBase {...propsCombined} />
+    </Tooltip>
+  )
+}
+export type ThemeColor =
+  | "peepo"
+  | keyof Omit<
+      Palette,
+      | "tonalOffset"
+      | "getContrastText"
+      | "action"
+      | "augmentColor"
+      | "background"
+      | "divider"
+      | "mode"
+      | "text"
+      | "common"
+      | "contrastThreshold"
+      | "grey"
+    >

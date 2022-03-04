@@ -6,9 +6,10 @@ import Box from "@mui/material/Box"
 import Copyright from "../src/Copyright"
 import useSWR from "swr"
 import { motion, useAnimation, useCycle, Variants } from "framer-motion"
-import { Footer, RepoLink } from "../components/util"
+import { Footer, ProjectView, RepoLink, ThemeColor } from "../components/util"
 import moment from "moment"
 import { useBoolean, useInterval } from "react-use"
+import { Palette, PaletteColor, Stack } from "@mui/material"
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
@@ -17,6 +18,29 @@ const variants: Variants = {
   visible: { scale: 1, opacity: 1, y: 0, transition: { duration: 0.1 } },
   breathing: { scale: 1.1, transition: { duration: 0.2 } },
 }
+
+interface Project {
+  key: ThemeColor
+  name: string
+  url: string
+  icon?: string | React.ReactElement
+  description?: string
+}
+const projects: Project[] = [
+  { key: "peepo", name: "Peepo Sings", url: "https://sings.peepo.dev", description: "A Twitch-Centric Music Player." },
+  {
+    key: "secondary",
+    name: "PokeSmash",
+    url: "https://pokesmash.xyz",
+    description: "The only way to Smash or Pass Pokemon & compare your findings to others.",
+  },
+  {
+    key: "success",
+    name: "EZ Clip",
+    url: "https://clips.jimmyboy.tv",
+    description: "A simple way to browse through a creator's Twitch Clips.",
+  },
+]
 
 const Home: NextPage = () => {
   const { data: mostRecentCommit, isValidating } = useSWR("/api/activity", fetcher)
@@ -89,7 +113,23 @@ const Home: NextPage = () => {
             </RepoLink>
           </Typography>
         )}
-        <div className="flex-grow" />
+        <Box className="py-12 w-2/3 flex-grow">
+          <Stack className="w-full h-full items-center justify-around " direction="column">
+            {projects.map((project, i) => (
+              <ProjectView
+                className="user-select"
+                key={`${project.key}-${i}`}
+                href={project.url}
+                target="_blank"
+                project={project.key}
+                description={project.description}>
+                <Typography variant="h4" component="h2" gutterBottom>
+                  {project.name}
+                </Typography>
+              </ProjectView>
+            ))}
+          </Stack>
+        </Box>
         <Footer>
           <Copyright />
         </Footer>

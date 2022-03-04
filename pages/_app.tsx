@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline"
 import { CacheProvider, EmotionCache } from "@emotion/react"
 import theme from "../src/theme"
 import "../styles/global.css"
+import { Toaster } from "react-hot-toast"
 import createEmotionCache from "../src/createEmotionCache"
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -23,6 +24,7 @@ export default function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
+        <Toaster />
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
