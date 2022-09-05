@@ -1,16 +1,17 @@
-import { Octokit, App } from "octokit";
-
-const gh = new Octokit({ auth: process.env.GITHUB_TOKEN });
-
+import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { gh } from '../../lib/gh'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  let mostRecentCommit: any | null = null
-  const activity = await gh.rest.activity.listEventsForAuthenticatedUser({ username: "devjimmyboy" }).catch((err) => { console.log("error: ", err); res.status(500).send("error") });
+  let mostRecentCommit: GetResponseDataTypeFromEndpointMethod<typeof gh.rest.activity.listEventsForAuthenticatedUser>[0] | null = null
+  const activity = await gh.rest.activity.listEventsForAuthenticatedUser({ username: 'devjimmyboy' }).catch((err) => {
+    console.log('error: ', err)
+    res.status(500).send('error')
+  })
 
-  activity?.data.forEach(event => {
-    if (mostRecentCommit !== null) return;
-    console.log(event.type);
+  activity?.data.forEach((event) => {
+    if (mostRecentCommit !== null) return
+    console.log(event.type)
     if (event.type === 'PushEvent') {
       mostRecentCommit = event
     }
@@ -19,5 +20,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   // console.log(mostRecentCommit);
 
   res.status(200).json(mostRecentCommit)
-
 }

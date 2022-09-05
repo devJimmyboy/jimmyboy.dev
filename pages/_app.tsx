@@ -1,13 +1,13 @@
-import * as React from "react"
-import Head from "next/head"
-import { AppProps } from "next/app"
-import { ThemeProvider } from "@mui/material/styles"
-import CssBaseline from "@mui/material/CssBaseline"
-import { CacheProvider, EmotionCache } from "@emotion/react"
-import theme from "../src/theme"
-import "../styles/global.css"
-import { Toaster } from "react-hot-toast"
-import createEmotionCache from "../src/createEmotionCache"
+import * as React from 'react'
+import '../styles/global.css'
+import Head from 'next/head'
+import { AppProps } from 'next/app'
+import { ThemeProvider } from '@mui/material/styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import { CacheProvider, EmotionCache } from '@emotion/react'
+import theme from '../src/theme'
+import createEmotionCache from '../src/createEmotionCache'
+import { Toaster } from 'react-hot-toast'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
