@@ -1,4 +1,4 @@
-import { Box, Palette, styled, Tooltip } from '@mui/material'
+import { Box, Palette, styled, Tooltip, useTheme } from '@mui/material'
 import { deepmerge } from '@mui/utils'
 import { ForwardRefComponent, HTMLMotionProps, motion } from 'framer-motion'
 import React from 'react'
@@ -84,7 +84,7 @@ export const RepoLink = styled(Link)`
     }
   }
 `
-const ProjectBase = styled<ForwardRefComponent<HTMLAnchorElement, HTMLMotionProps<'a'> & { projectColor: string }>>(motion.a)`
+const ProjectBase = styled<ForwardRefComponent<HTMLAnchorElement, HTMLMotionProps<'a'>>>(motion.a)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,19 +93,23 @@ const ProjectBase = styled<ForwardRefComponent<HTMLAnchorElement, HTMLMotionProp
   font-weight: 700;
   cursor: pointer;
   border-radius: 0.5em;
-  background-color: ${(props) => props.projectColor};
-  color: ${(props) => props.theme.palette.getContrastText(props.projectColor)};
+
   padding: 0.5em 1em;
   user-select: none;
   font-size: 2em;
   vertical-align: text-top;
   outline-style: solid;
   outline-width: 4px;
-  outline-color: ${(props) => props.theme.palette.getContrastText(props.projectColor)};
+
   outline-offset: -4px;
   /* transition: all 0.2s ease-in-out; */
 `
-export const ProjectView = ({ description, ...props }: React.PropsWithChildren<React.ComponentProps<typeof ProjectBase> & { className: string; description?: string }>) => {
+export const ProjectView = ({
+  description,
+  projectColor,
+  ...props
+}: React.PropsWithChildren<React.ComponentProps<typeof ProjectBase> & { className: string; description?: string; projectColor?: string }>) => {
+  const theme = useTheme()
   const propsCombined = {
     ...props,
     whileHover: props.whileHover ? deepmerge({ scale: 1.1, outlineWidth: 10 }, props.whileHover) : { scale: 1.1, outlineWidth: 10 },
@@ -119,6 +123,9 @@ export const ProjectView = ({ description, ...props }: React.PropsWithChildren<R
       placement="left"
       sx={{
         fontSize: '1.25em',
+        backgroundColor: projectColor,
+        color: theme.palette.getContrastText(projectColor),
+        outlineColor: theme.palette.getContrastText(projectColor),
       }}>
       <ProjectBase {...propsCombined} />
     </Tooltip>
