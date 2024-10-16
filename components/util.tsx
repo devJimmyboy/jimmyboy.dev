@@ -77,7 +77,6 @@ export const RepoLink = styled(Link)`
 
   animation: glorious 6s linear infinite;
 
-  // keyframes for animation called glorious that is a sliding gradient
   @keyframes glorious {
     100% {
       background-position: top right;
