@@ -1,4 +1,3 @@
-import React from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Anchor } from '@mantine/core'
 import { Icon } from '@iconify/react'

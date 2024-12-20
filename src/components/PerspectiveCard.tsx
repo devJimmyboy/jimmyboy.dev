@@ -20,7 +20,6 @@ export default function PerspectiveCard({ onClick, style, children, selected }: 
     stiffness: 300,
     damping: 20,
   })
-  const [isClicked, setIsClicked] = React.useState(false)
   const [isHovered, setIsHovered] = React.useState(false)
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function PerspectiveCard({ onClick, style, children, selected }: 
     rotateY.set(rY)
   }
 
-  useAnimationFrame((time, delta) => {
+  useAnimationFrame(() => {
     const rY = rotateY.get()
     const rX = rotateX.get()
     if (!isHovered && Math.abs(rX) > 0.1 && Math.abs(rY) > 0.1) {
