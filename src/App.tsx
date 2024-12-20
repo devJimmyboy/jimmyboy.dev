@@ -1,15 +1,11 @@
-import '@mantine/core/styles.css'
-import { MantineProvider } from '@mantine/core'
-import { theme } from './theme'
-import { Router } from './Router'
-import { emotionTransform, MantineEmotionProvider } from '@mantine/emotion'
+import { useState } from 'react'
 
-export default function App() {
+function App() {
   return (
-    <MantineProvider theme={theme} defaultColorScheme="auto" stylesTransform={emotionTransform}>
-      <MantineEmotionProvider>
-        <Router />
-      </MantineEmotionProvider>
-    </MantineProvider>
+    <div className="flex justify-center items-center h-screen w-screen">
+      <h1>Jimmyboy</h1>
+    </div>
   )
 }
+
+export default App
