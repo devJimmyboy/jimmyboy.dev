@@ -13,7 +13,7 @@ export default function App() {
         <ProjectHand selected={selected} setSelected={setSelected} />
         <DetailsPanel selected={selected} />
       </Stack>
-      <div style={{ position: 'absolute', bottom: 2, left: 2, color: '#7b7b7b', fontWeight: 600, fontSize: '0.9em' }}>This website is a work in progress. Please judge sparingly :)</div>
+      <div style={{ position: 'fixed', bottom: 2, left: 2, color: '#7b7b7b', fontWeight: 600, fontSize: '0.9em' }}>This website is a work in progress. Please judge sparingly :)</div>
     </>
   )
 }
