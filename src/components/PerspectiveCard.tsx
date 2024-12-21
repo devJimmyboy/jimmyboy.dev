@@ -48,13 +48,12 @@ export default function PerspectiveCard({ onClick, style, children, selected }: 
   })
   return (
     <motion.div
+      className="p-card"
       initial={{
         rotateZ: '-50deg',
         scale: 0.01,
       }}
       style={{
-        width: '20em',
-        height: '25em',
         background: 'linear-gradient(45deg, #f3ec78, #af4261)',
         perspective: '1000px 100px',
         rotateX: rotateX,

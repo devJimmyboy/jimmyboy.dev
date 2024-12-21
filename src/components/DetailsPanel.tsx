@@ -20,7 +20,7 @@ export default function DetailsPanel({ selected }: Props) {
         style={{
           marginTop: '1em',
           borderRadius: '1rem',
-          background: 'linear-gradient(180deg, #1c1c1c 97%, transparent)',
+          background: '#1c1c1c',
           overflow: 'hidden',
         }}>
         {selected === 0 && (
@@ -29,7 +29,8 @@ export default function DetailsPanel({ selected }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
+            className="details-panel"
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
             <div style={{ padding: '2em', width: '100%' }}>
               <Anchor href="https://pokesmash.xyz" target="poke-smash" style={{ fontSize: '2em', fontWeight: 700, color: '#ccc571' }}>
                 PokeSmash <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
@@ -49,7 +50,8 @@ export default function DetailsPanel({ selected }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
+            className="details-panel"
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
             <div style={{ padding: '2em', width: '100%' }}>
               <Anchor href="https://deal-or-no-deal.pages.dev/" target="deal-or-no-deal" style={{ fontSize: '2em', fontWeight: 700, color: '#977be2' }}>
                 Twitch Deal or No Deal <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
@@ -69,7 +71,8 @@ export default function DetailsPanel({ selected }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
+            className="details-panel"
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
             <div style={{ padding: '2em', width: '100%' }}>
               <Anchor href="https://sings.peepo.dev" target="peepo-sings" style={{ fontSize: '2em', fontWeight: 700, color: '#73dd96' }}>
                 Peepo Sings <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
