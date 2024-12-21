@@ -14,6 +14,7 @@ export default function DetailsPanel({ selected }: Props) {
         initial={{ width: '0' }}
         animate={{
           height: selected === -1 ? '0%' : '50%',
+          minHeight: selected === -1 ? '0px' : '200px',
           width: '95%',
           border: `2px solid ${colors[selected + 1]}`,
         }}
@@ -41,7 +42,7 @@ export default function DetailsPanel({ selected }: Props) {
                 Made using Next.js, Firebase, and Material UI.
               </p>
             </div>
-            <motion.img src="https://i.nuuls.com/9jxb6.png" alt="Deal or No Deal" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
+            <motion.img src="https://i.nuuls.com/9jxb6.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
           </motion.div>
         )}
         {selected === 1 && (
@@ -62,7 +63,7 @@ export default function DetailsPanel({ selected }: Props) {
                 Made using Phaser.js.
               </p>
             </div>
-            <motion.img src="https://i.nuuls.com/fWgvJ.png" alt="Deal or No Deal" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
+            <motion.img src="https://i.nuuls.com/fWgvJ.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
           </motion.div>
         )}
         {selected === 2 && (
