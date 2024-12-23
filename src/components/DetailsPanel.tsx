@@ -42,7 +42,7 @@ export default function DetailsPanel({ selected }: Props) {
                 Made using Next.js, Firebase, and Material UI.
               </p>
             </div>
-            <motion.img src="https://i.nuuls.com/9jxb6.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
+            <motion.img src="/pokesmash.png" alt="PokeSmash Website" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
           </motion.div>
         )}
         {selected === 1 && (
@@ -63,7 +63,7 @@ export default function DetailsPanel({ selected }: Props) {
                 Made using Phaser.js.
               </p>
             </div>
-            <motion.img src="https://i.nuuls.com/fWgvJ.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
+            <motion.img src="/deal-or-no-deal.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
           </motion.div>
         )}
         {selected === 2 && (
@@ -85,7 +85,7 @@ export default function DetailsPanel({ selected }: Props) {
                 Used Electron, Web Audio API, SQLite, MantineUI, and Dependency Injection.
               </p>
             </div>
-            <motion.img src="https://i.nuuls.com/1mhEW.png" alt="Peepo Sings Music player interface" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #73dd96' }} />
+            <motion.img src="/sings.png" alt="Peepo Sings Music player interface" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #73dd96' }} />
           </motion.div>
         )}
       </motion.div>
