@@ -6,7 +6,7 @@ type Props = {
 }
 
 export default function DetailsPanel({ selected }: Props) {
-  const colors = ['#73bffb', '#ccc571', '#977be2', '#73dd96']
+  const colors = ['#73bffb', '#ccc571', '#ff69a1', '#977be2', '#73dd96']
   // panel morphs based on selected project
   return (
     <AnimatePresence>
@@ -39,7 +39,8 @@ export default function DetailsPanel({ selected }: Props) {
               <p>
                 Smash or Pass for Pokemon.
                 <br />
-                Made using Next.js, Firebase, and Material UI.
+                <br />
+                <strong>Made using Next.js, Firebase, and Material UI.</strong>
               </p>
             </div>
             <motion.img src="/pokesmash.png" alt="PokeSmash Website" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
@@ -54,19 +55,44 @@ export default function DetailsPanel({ selected }: Props) {
             className="details-panel"
             style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
             <div style={{ padding: '2em', width: '100%' }}>
+              <Anchor href="https://crypto.peepo.dev/" target="crypto-investment" style={{ fontSize: '2em', fontWeight: 700, color: '#ff69a1' }}>
+                Crypto Investment Tracker <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
+              </Anchor>
+              <p>
+                Commissioned project for <Anchor href="https://twitch.tv/mizkif">Mizkif.</Anchor>
+                <br />
+                <span>2 Streamers' chats choose 10 cryptos to invest $10,000 in. After one month they see how much they made and who profited the most.</span>
+                <br />
+                <br />
+                <strong>Made using React, ReCharts, Joy UI (Material UI), Express, and PostgreSQL (Prisma).</strong>
+              </p>
+            </div>
+            <motion.img src="/crypto-tracker.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ff69a1' }} />
+          </motion.div>
+        )}
+        {selected === 2 && (
+          <motion.div
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="details-panel"
+            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
+            <div style={{ padding: '2em', width: '100%' }}>
               <Anchor href="https://deal-or-no-deal.pages.dev/" target="deal-or-no-deal" style={{ fontSize: '2em', fontWeight: 700, color: '#977be2' }}>
                 Twitch Deal or No Deal <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
               </Anchor>
               <p>
                 Commissioned project for <Anchor href="https://twitch.tv/mizkif">Mizkif.</Anchor>
                 <br />
-                Made using Phaser.js.
+                <br />
+                <strong>Made using Phaser.js.</strong>
               </p>
             </div>
             <motion.img src="/deal-or-no-deal.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
           </motion.div>
         )}
-        {selected === 2 && (
+        {selected === 3 && (
           <motion.div
             layout
             initial={{ opacity: 0 }}
@@ -82,7 +108,8 @@ export default function DetailsPanel({ selected }: Props) {
               <p>
                 Desktop Music Player app that takes the unique idea of putting playlists into songs compared to the norm of songs into playlists.
                 <br />
-                Used Electron, Web Audio API, SQLite, MantineUI, and Dependency Injection.
+                <br />
+                <strong> Used Electron, Web Audio API, SQLite, MantineUI, and Dependency Injection.</strong>
               </p>
             </div>
             <motion.img src="/sings.png" alt="Peepo Sings Music player interface" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #73dd96' }} />

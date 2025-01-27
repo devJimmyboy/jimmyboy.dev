@@ -8,7 +8,7 @@ type Props = {
 
 export default function ProjectHand({ selected, setSelected }: Props) {
   return (
-    <Group justify="space-around" w="100%">
+    <Group justify="space-around" w="100%" gap={0.3}>
       <PerspectiveCard
         selected={selected === 0}
         style={{
@@ -20,17 +20,25 @@ export default function ProjectHand({ selected, setSelected }: Props) {
       <PerspectiveCard
         selected={selected === 1}
         style={{
-          background: 'linear-gradient(45deg, #987ce3, #480e9f)',
+          background: 'linear-gradient(45deg, #ff69a1,#94385a)',
         }}
         onClick={() => (selected !== 1 ? setSelected(1) : setSelected(-1))}>
-        <h2>Deal or No Deal</h2>
+        <h2>Crypto Investment Tracker</h2>
       </PerspectiveCard>
       <PerspectiveCard
         selected={selected === 2}
         style={{
-          background: 'linear-gradient(45deg, #75de98, #0c7524)',
+          background: 'linear-gradient(45deg, #987ce3, #480e9f)',
         }}
         onClick={() => (selected !== 2 ? setSelected(2) : setSelected(-1))}>
+        <h2>Deal or No Deal</h2>
+      </PerspectiveCard>
+      <PerspectiveCard
+        selected={selected === 3}
+        style={{
+          background: 'linear-gradient(45deg, #75de98, #0c7524)',
+        }}
+        onClick={() => (selected !== 3 ? setSelected(3) : setSelected(-1))}>
         <h2>Peepo Sings</h2>
       </PerspectiveCard>
     </Group>
