@@ -32,12 +32,20 @@ export default function DetailsPanel({ selected }: Props) {
             exit={{ opacity: 0 }}
             className="details-panel"
             style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%' }}>
+            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Anchor
+                href="https://github.com/devJimmyboy/pokesmash"
+                target="poke-smash"
+                style={{ fontSize: '2em', fontWeight: 700, color: '#ccc571', position: 'absolute', top: '1em', right: '1em' }}>
+                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
+              </Anchor>
               <Anchor href="https://pokesmash.xyz" target="poke-smash" style={{ fontSize: '2em', fontWeight: 700, color: '#ccc571' }}>
                 PokeSmash <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
               </Anchor>
               <p>
-                Smash or Pass for Pokemon.
+                My first major project
+                <br /> It's amassed over <strong>1.2 Million unique users</strong> since 2022.
+                <br /> Smash or Pass for Pokemon.
                 <br />
                 <br />
                 <strong>Made using Next.js, Firebase, and Material UI.</strong>
@@ -54,7 +62,20 @@ export default function DetailsPanel({ selected }: Props) {
             exit={{ opacity: 0 }}
             className="details-panel"
             style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%' }}>
+            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {/* <Anchor
+                href="https://github.com/devJimmyboy/pokesmash"
+                target="crypto-investment-github"
+                style={{
+                  fontSize: '2em',
+                  fontWeight: 700,
+                  color: '#ff69a1',
+                  position: 'absolute',
+                  top: '1em',
+                  right: '1em',
+                }}>
+                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
+              </Anchor> */}
               <Anchor href="https://crypto.peepo.dev/" target="crypto-investment" style={{ fontSize: '2em', fontWeight: 700, color: '#ff69a1' }}>
                 Crypto Investment Tracker <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
               </Anchor>
@@ -78,12 +99,28 @@ export default function DetailsPanel({ selected }: Props) {
             exit={{ opacity: 0 }}
             className="details-panel"
             style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%' }}>
+            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              {/* <Anchor
+                href="https://github.com/devJimmyboy/pokesmash"
+                target="deal-or-no-deal-github"
+                style={{
+                  fontSize: '2em',
+                  fontWeight: 700,
+                  color: '#977be2',
+                  position: 'absolute',
+                  top: '1em',
+                  right: '1em',
+                }}>
+                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
+              </Anchor> */}
               <Anchor href="https://deal-or-no-deal.pages.dev/" target="deal-or-no-deal" style={{ fontSize: '2em', fontWeight: 700, color: '#977be2' }}>
                 Twitch Deal or No Deal <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
               </Anchor>
               <p>
                 Commissioned project for <Anchor href="https://twitch.tv/mizkif">Mizkif.</Anchor>
+                <br />
+                Spinoff game of the popular TV show designed for Twitch chat engagement. The <Anchor href="https://youtu.be/B_vQky3wUWk?t=1226">final stream</Anchor> amassed over 25,000 concurrent
+                viewers.
                 <br />
                 <br />
                 <strong>Made using Phaser.js.</strong>
@@ -100,7 +137,20 @@ export default function DetailsPanel({ selected }: Props) {
             exit={{ opacity: 0 }}
             className="details-panel"
             style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%' }}>
+            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <Anchor
+                href="https://github.com/Jimmyboy-dev/PeepoSings"
+                target="peepo-sings-github"
+                style={{
+                  fontSize: '2em',
+                  fontWeight: 700,
+                  color: '#73dd96',
+                  position: 'absolute',
+                  top: '1em',
+                  right: '1em',
+                }}>
+                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
+              </Anchor>
               <Anchor href="https://sings.peepo.dev" target="peepo-sings" style={{ fontSize: '2em', fontWeight: 700, color: '#73dd96' }}>
                 Peepo Sings <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
               </Anchor>
