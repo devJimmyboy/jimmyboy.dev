@@ -1,171 +1,155 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Anchor } from '@mantine/core'
 import { Icon } from '@iconify/react'
+
 type Props = {
   selected: number
 }
 
-export default function DetailsPanel({ selected }: Props) {
-  const colors = ['#73bffb', '#ccc571', '#ff69a1', '#977be2', '#73dd96']
-  // panel morphs based on selected project
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ width: '0' }}
-        animate={{
-          height: selected === -1 ? '0%' : '50%',
-          minHeight: selected === -1 ? '0px' : '200px',
-          width: '95%',
-          border: `2px solid ${colors[selected + 1]}`,
-        }}
-        style={{
-          marginTop: '1em',
-          borderRadius: '1rem',
-          background: '#1c1c1c',
-          overflow: 'hidden',
-        }}>
-        {selected === 0 && (
-          <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="details-panel"
-            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <Anchor
-                href="https://github.com/devJimmyboy/pokesmash"
-                target="poke-smash"
-                style={{ fontSize: '2em', fontWeight: 700, color: '#ccc571', position: 'absolute', top: '1em', right: '1em' }}>
-                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
-              </Anchor>
-              <Anchor href="https://pokesmash.xyz" target="poke-smash" style={{ fontSize: '2em', fontWeight: 700, color: '#ccc571' }}>
-                PokeSmash <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
-              </Anchor>
-              <p>
-                My first major project
-                <br /> It's amassed over <strong>1.2 Million unique users</strong> since 2022.
-                <br /> Smash or Pass for Pokemon.
-                <br />
-                <br />
-                <strong>Made using Next.js, Firebase, and Material UI.</strong>
-              </p>
-            </div>
-            <motion.img src="/pokesmash.png" alt="PokeSmash Website" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ccc571' }} />
-          </motion.div>
-        )}
-        {selected === 1 && (
-          <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="details-panel"
-            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              {/* <Anchor
-                href="https://github.com/devJimmyboy/pokesmash"
-                target="crypto-investment-github"
-                style={{
-                  fontSize: '2em',
-                  fontWeight: 700,
-                  color: '#ff69a1',
-                  position: 'absolute',
-                  top: '1em',
-                  right: '1em',
-                }}>
-                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
-              </Anchor> */}
-              <Anchor href="https://crypto.peepo.dev/" target="crypto-investment" style={{ fontSize: '2em', fontWeight: 700, color: '#ff69a1' }}>
-                Crypto Investment Tracker <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
-              </Anchor>
-              <p>
-                Commissioned project for <Anchor href="https://twitch.tv/mizkif">Mizkif.</Anchor>
-                <br />
-                <span>2 Streamers' chats choose 10 cryptos to invest $10,000 in. After one month they see how much they made and who profited the most.</span>
-                <br />
-                <br />
-                <strong>Made using React, ReCharts, Joy UI (Material UI), Express, and PostgreSQL (Prisma).</strong>
-              </p>
-            </div>
-            <motion.img src="/crypto-tracker.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #ff69a1' }} />
-          </motion.div>
-        )}
-        {selected === 2 && (
-          <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="details-panel"
-            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              {/* <Anchor
-                href="https://github.com/devJimmyboy/pokesmash"
-                target="deal-or-no-deal-github"
-                style={{
-                  fontSize: '2em',
-                  fontWeight: 700,
-                  color: '#977be2',
-                  position: 'absolute',
-                  top: '1em',
-                  right: '1em',
-                }}>
-                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
-              </Anchor> */}
-              <Anchor href="https://deal-or-no-deal.pages.dev/" target="deal-or-no-deal" style={{ fontSize: '2em', fontWeight: 700, color: '#977be2' }}>
-                Twitch Deal or No Deal <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
-              </Anchor>
-              <p>
-                Commissioned project for <Anchor href="https://twitch.tv/mizkif">Mizkif.</Anchor>
-                <br />
-                Spinoff game of the popular TV show designed for Twitch chat engagement. The <Anchor href="https://youtu.be/B_vQky3wUWk?t=1226">final stream</Anchor> amassed over 25,000 concurrent
-                viewers.
-                <br />
-                <br />
-                <strong>Made using Phaser.js.</strong>
-              </p>
-            </div>
-            <motion.img src="/deal-or-no-deal.png" alt="Deal or No Deal" style={{ height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #977be2' }} />
-          </motion.div>
-        )}
-        {selected === 3 && (
-          <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="details-panel"
-            style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}>
-            <div style={{ padding: '2em', width: '100%', position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <Anchor
-                href="https://github.com/Jimmyboy-dev/PeepoSings"
-                target="peepo-sings-github"
-                style={{
-                  fontSize: '2em',
-                  fontWeight: 700,
-                  color: '#73dd96',
-                  position: 'absolute',
-                  top: '1em',
-                  right: '1em',
-                }}>
-                <Icon icon="fa6-brands:github" style={{ fontSize: '1em', marginLeft: '0.25em' }} />
-              </Anchor>
-              <Anchor href="https://sings.peepo.dev" target="peepo-sings" style={{ fontSize: '2em', fontWeight: 700, color: '#73dd96' }}>
-                Peepo Sings <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.6em', marginLeft: '0.25em' }} />
-              </Anchor>
+const projects = [
+  {
+    index: 0,
+    name: 'PokeSmash',
+    color: '#f0e080',
+    liveUrl: 'https://pokesmash.xyz',
+    githubUrl: 'https://github.com/devJimmyboy/pokesmash',
+    image: '/pokesmash.png',
+    description: (
+      <>
+        My first major project — it's amassed over <strong>1.2 Million unique users</strong> since 2022.
+        <br />
+        Smash or Pass for Pokémon.
+      </>
+    ),
+    stack: 'Next.js · Firebase · Material UI',
+  },
+  {
+    index: 1,
+    name: 'Crypto Investment Tracker',
+    color: '#ff8fbf',
+    liveUrl: 'https://crypto.peepo.dev/',
+    githubUrl: null,
+    image: '/crypto-tracker.png',
+    description: (
+      <>
+        Commissioned project for <Anchor href="https://twitch.tv/mizkif" style={{ color: '#ff8fbf' }}>Mizkif</Anchor>.
+        <br />
+        2 streamers' chats each pick 10 cryptos to invest $10,000 in and see who profits after a month.
+      </>
+    ),
+    stack: 'React · ReCharts · Joy UI · Express · PostgreSQL',
+  },
+  {
+    index: 2,
+    name: 'Twitch Deal or No Deal',
+    color: '#b89ff0',
+    liveUrl: 'https://deal-or-no-deal.pages.dev/',
+    githubUrl: null,
+    image: '/deal-or-no-deal.png',
+    description: (
+      <>
+        Commissioned project for <Anchor href="https://twitch.tv/mizkif" style={{ color: '#b89ff0' }}>Mizkif</Anchor>.
+        <br />
+        Twitch-integrated Deal or No Deal. The{' '}
+        <Anchor href="https://youtu.be/B_vQky3wUWk?t=1226" style={{ color: '#b89ff0' }}>final stream</Anchor>{' '}
+        hit <strong>25,000 concurrent viewers</strong>.
+      </>
+    ),
+    stack: 'Phaser.js',
+  },
+  {
+    index: 3,
+    name: 'Peepo Sings',
+    color: '#90f0b0',
+    liveUrl: 'https://sings.peepo.dev',
+    githubUrl: 'https://github.com/Jimmyboy-dev/PeepoSings',
+    image: '/sings.png',
+    description: (
+      <>
+        Desktop music player with a novel idea: put playlists <em>into</em> songs instead of songs into playlists.
+      </>
+    ),
+    stack: 'Electron · Web Audio API · SQLite · MantineUI',
+  },
+]
 
-              <p>
-                Desktop Music Player app that takes the unique idea of putting playlists into songs compared to the norm of songs into playlists.
-                <br />
-                <br />
-                <strong> Used Electron, Web Audio API, SQLite, MantineUI, and Dependency Injection.</strong>
+export default function DetailsPanel({ selected }: Props) {
+  const project = selected >= 0 ? projects[selected] : null
+
+  return (
+    <motion.div
+      className="details-panel-container"
+      initial={false}
+      animate={{
+        height: project ? 'clamp(180px, 38vh, 340px)' : '0px',
+        opacity: project ? 1 : 0,
+      }}
+      transition={{ duration: 0.38, ease: [0.32, 0, 0.2, 1] }}
+      style={{
+        width: '95%',
+        maxWidth: '900px',
+        overflow: 'hidden',
+        borderRadius: '1rem',
+        flexShrink: 0,
+      }}>
+      <AnimatePresence mode="wait">
+        {project && (
+          <motion.div
+            key={project.index}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            style={{
+              width: '100%',
+              height: '100%',
+              background: '#18181e',
+              border: `2px solid ${project.color}55`,
+              borderRadius: '1rem',
+              display: 'flex',
+              alignItems: 'stretch',
+              overflow: 'hidden',
+            }}>
+            {/* Text section */}
+            <div style={{ flex: 1, padding: '1.6em 2em', display: 'flex', flexDirection: 'column', justifyContent: 'center', minWidth: 0, gap: '0.5em' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75em', flexWrap: 'wrap' }}>
+                <Anchor
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: 'clamp(1.1em, 2.5vw, 1.6em)', fontWeight: 700, color: project.color, lineHeight: 1.2 }}>
+                  {project.name}{' '}
+                  <Icon icon="fa6-solid:arrow-up-right-from-square" style={{ fontSize: '0.55em', verticalAlign: 'middle' }} />
+                </Anchor>
+                {project.githubUrl && (
+                  <Anchor
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: project.color, fontSize: '1.4em', lineHeight: 1 }}>
+                    <Icon icon="fa6-brands:github" />
+                  </Anchor>
+                )}
+              </div>
+              <p style={{ margin: 0, fontSize: 'clamp(0.8em, 1.4vw, 0.95em)', lineHeight: 1.6, color: '#ccc' }}>
+                {project.description}
+              </p>
+              <p style={{ margin: 0, fontSize: 'clamp(0.7em, 1.2vw, 0.82em)', color: `${project.color}cc`, fontWeight: 600, letterSpacing: '0.03em' }}>
+                {project.stack}
               </p>
             </div>
-            <motion.img src="/sings.png" alt="Peepo Sings Music player interface" style={{ right: 0, height: '100%', boxSizing: 'border-box', borderLeft: '8px solid #73dd96' }} />
+
+            {/* Screenshot */}
+            <div style={{ flexShrink: 0, borderLeft: `4px solid ${project.color}66`, overflow: 'hidden', maxWidth: '45%' }}>
+              <img
+                src={project.image}
+                alt={project.name}
+                style={{ height: '100%', width: '100%', objectFit: 'cover', objectPosition: 'left top', display: 'block' }}
+              />
+            </div>
           </motion.div>
         )}
-      </motion.div>
-    </AnimatePresence>
+      </AnimatePresence>
+    </motion.div>
   )
 }
