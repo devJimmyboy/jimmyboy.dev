@@ -25,7 +25,7 @@ export default function App() {
           gap: '1.5rem',
         }}>
         <ProjectHand selected={selected} setSelected={setSelected} />
-        <DetailsPanel selected={selected} />
+        <DetailsPanel selected={selected} onClose={() => setSelected(-1)} />
       </div>
 
       <div style={{ position: 'fixed', bottom: 4, left: 6, color: '#5a5a6a', fontWeight: 600, fontSize: '0.78em', pointerEvents: 'none' }}>

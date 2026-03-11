@@ -4,16 +4,15 @@
 
 /* ---- Card wrapper (handles fan rotation + absolute position) ---- */
 .balatro-card-wrapper {
-  /* perspective on the wrapper so rotateX/Y look right */
   perspective: 900px;
 }
 
 /* ---- The animated card itself ---- */
+/* Width is set via inline style from JS (useCardWidth hook) so layout
+   math stays in sync. aspect-ratio handles height. */
 .balatro-card {
-  width: clamp(120px, 14vw, 160px);
-  /* Playing card ratio: 2.5 : 3.5  →  1 : 1.4 */
   aspect-ratio: 5 / 7;
-  border-radius: 10px;
+  border-radius: 12px;
   position: relative;
   will-change: transform;
 }
@@ -22,7 +21,7 @@
 .card-face {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 2.5px solid;
   position: relative;
   overflow: hidden;
@@ -31,11 +30,9 @@
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.7),
+    0 10px 40px rgba(0, 0, 0, 0.75),
     0 2px 8px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  /* subtle texture overlay */
-  background-size: cover;
 }
 
 .card-face::after {
@@ -56,8 +53,8 @@
 /* ---- Inner decorative border (Balatro trademark) ---- */
 .card-inner-border {
   position: absolute;
-  inset: 6px;
-  border-radius: 7px;
+  inset: 8px;
+  border-radius: 8px;
   border: 1.5px solid;
   pointer-events: none;
   z-index: 1;
@@ -71,22 +68,22 @@
   align-items: center;
   line-height: 1;
   z-index: 2;
-  gap: 1px;
+  gap: 2px;
 }
 
 .card-corner-tl {
   top: 10px;
-  left: 10px;
+  left: 11px;
 }
 
 .card-corner-br {
   bottom: 10px;
-  right: 10px;
+  right: 11px;
   transform: rotate(180deg);
 }
 
 .card-rank {
-  font-size: clamp(0.85em, 1.6vw, 1.1em);
+  font-size: 1em;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1;
@@ -94,7 +91,7 @@
 }
 
 .card-suit-small {
-  font-size: clamp(0.6em, 1.2vw, 0.8em);
+  font-size: 0.7em;
   line-height: 1;
 }
 
@@ -103,28 +100,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   z-index: 2;
-  padding: 0 8px;
+  padding: 0 10px;
   text-align: center;
 }
 
 .card-suit-large {
-  font-size: clamp(2em, 4.5vw, 3em);
+  font-size: 2.6em;
   line-height: 1;
-  filter: drop-shadow(0 0 8px currentColor);
+  filter: drop-shadow(0 0 10px currentColor);
 }
 
 .card-center-name {
-  font-size: clamp(0.55em, 1.1vw, 0.72em);
+  font-size: 0.62em;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  line-height: 1.25;
+  line-height: 1.3;
   text-align: center;
   word-break: break-word;
-  max-width: 90%;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  max-width: 88%;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
 }
 
 /* ---- Selection glow overlay ---- */
@@ -138,22 +135,22 @@
 
 /* ---- Hand container ---- */
 .project-hand {
-  /* ensure overflowed cards (during hover scale) aren't clipped */
   overflow: visible;
 }
 
-/* ---- Details panel container ---- */
-.details-panel-container {
-  /* smooth height transition handled by motion */
+/* ---- Mobile bottom sheet ---- */
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+  margin: 0 auto 16px;
 }
 
-/* ---- Responsive tweaks ---- */
-@media (max-width: 480px) {
-  .balatro-card {
-    width: clamp(90px, 22vw, 120px);
-  }
-
-  .card-suit-large {
-    font-size: 1.8em;
-  }
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 900;
+  cursor: pointer;
 }

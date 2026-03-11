@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import PerspectiveCard, { ProjectData } from './PerspectiveCard'
 
 type Props = {
@@ -48,12 +49,27 @@ const projects: ProjectData[] = [
   },
 ]
 
+/** Mirrors the card size formula in CSS so layout math is always in sync. */
+function computeCardWidth(vw: number): number {
+  if (vw <= 480) return Math.min(130, Math.max(85, vw * 0.24))
+  return Math.min(260, Math.max(160, vw * 0.15))
+}
+
+function useCardWidth() {
+  const [cardWidth, setCardWidth] = useState(() => computeCardWidth(window.innerWidth))
+  useEffect(() => {
+    const onResize = () => setCardWidth(computeCardWidth(window.innerWidth))
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  return cardWidth
+}
+
 export default function ProjectHand({ selected, setSelected }: Props) {
   const total = projects.length
+  const cardWidth = useCardWidth()
 
-  // Horizontal overlap: each card offset so they fan/overlap
-  const cardWidth = 160 // px, approximate rendered card width
-  const overlapFactor = 0.55 // how much each card overlaps the previous
+  const overlapFactor = 0.52
   const totalWidth = cardWidth + (total - 1) * cardWidth * overlapFactor
 
   return (
@@ -61,16 +77,16 @@ export default function ProjectHand({ selected, setSelected }: Props) {
       className="project-hand"
       style={{
         position: 'relative',
-        width: `min(${totalWidth}px, 90vw)`,
-        height: 'clamp(220px, 38vh, 320px)',
+        width: `min(${totalWidth}px, 92vw)`,
+        // Height accommodates card + lift headroom for selected card
+        height: cardWidth * 1.4 + 70,
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'center',
+        flexShrink: 0,
       }}>
       {projects.map((project, i) => {
-        // Center the fan
         const offsetX = (i - (total - 1) / 2) * (cardWidth * overlapFactor)
-
         return (
           <PerspectiveCard
             key={project.index}
@@ -78,11 +94,10 @@ export default function ProjectHand({ selected, setSelected }: Props) {
             selected={selected === i}
             handIndex={i}
             totalCards={total}
+            cardWidth={cardWidth}
             zIndex={i + 1}
             dealDelay={i * 0.12}
-            style={{
-              left: `calc(50% + ${offsetX}px - ${cardWidth / 2}px)`,
-            }}
+            style={{ left: `calc(50% + ${offsetX}px - ${cardWidth / 2}px)` }}
             onClick={() => setSelected(selected !== i ? i : -1)}
           />
         )
